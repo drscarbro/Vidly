@@ -215,9 +215,38 @@
     <Compile Include="Migrations\201805100134328_AddCustomerAndMembershipProperties.Designer.cs">
       <DependentUpon>201805100134328_AddCustomerAndMembershipProperties.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201805100205001_AddMovieGenreProperties.cs" />
+    <Compile Include="Migrations\201805100205001_AddMovieGenreProperties.Designer.cs">
+      <DependentUpon>201805100205001_AddMovieGenreProperties.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805100208445_AddMovieGenreProperties1.cs" />
+    <Compile Include="Migrations\201805100208445_AddMovieGenreProperties1.Designer.cs">
+      <DependentUpon>201805100208445_AddMovieGenreProperties1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805100224369_UpdateMovieGenres.cs" />
+    <Compile Include="Migrations\201805100224369_UpdateMovieGenres.Designer.cs">
+      <DependentUpon>201805100224369_UpdateMovieGenres.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805100243062_UpdateCustomers.cs" />
+    <Compile Include="Migrations\201805100243062_UpdateCustomers.Designer.cs">
+      <DependentUpon>201805100243062_UpdateCustomers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805100300366_UpdateMembershipTypes.cs" />
+    <Compile Include="Migrations\201805100300366_UpdateMembershipTypes.Designer.cs">
+      <DependentUpon>201805100300366_UpdateMembershipTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805100317418_UpdateMembershipTypeId.cs" />
+    <Compile Include="Migrations\201805100317418_UpdateMembershipTypeId.Designer.cs">
+      <DependentUpon>201805100317418_UpdateMembershipTypeId.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805100325017_UpdateMembershipTypeId1.cs" />
+    <Compile Include="Migrations\201805100325017_UpdateMembershipTypeId1.Designer.cs">
+      <DependentUpon>201805100325017_UpdateMembershipTypeId1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\Genre.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MembershipType.cs" />
@@ -314,6 +343,27 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201805100134328_AddCustomerAndMembershipProperties.resx">
       <DependentUpon>201805100134328_AddCustomerAndMembershipProperties.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805100205001_AddMovieGenreProperties.resx">
+      <DependentUpon>201805100205001_AddMovieGenreProperties.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805100208445_AddMovieGenreProperties1.resx">
+      <DependentUpon>201805100208445_AddMovieGenreProperties1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805100224369_UpdateMovieGenres.resx">
+      <DependentUpon>201805100224369_UpdateMovieGenres.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805100243062_UpdateCustomers.resx">
+      <DependentUpon>201805100243062_UpdateCustomers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805100300366_UpdateMembershipTypes.resx">
+      <DependentUpon>201805100300366_UpdateMembershipTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805100317418_UpdateMembershipTypeId.resx">
+      <DependentUpon>201805100317418_UpdateMembershipTypeId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805100325017_UpdateMembershipTypeId1.resx">
+      <DependentUpon>201805100325017_UpdateMembershipTypeId1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
