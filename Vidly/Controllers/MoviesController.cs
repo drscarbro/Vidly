@@ -29,7 +29,7 @@ namespace Vidly.Controllers
         // GET: Movie
         public ActionResult Details(int id)
         {
-            var movie = _context.Movies.SingleOrDefault(m => m.Id == id);
+            var movie = _context.Movies.Include(g => g.Genre).SingleOrDefault(m => m.Id == id);
 
             if (movie == null)
             {
