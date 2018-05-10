@@ -3,12 +3,11 @@
 @{
     /**/
 
-    ViewBag.Title = "New";
-    Layout = "~/Views/Share" +
-    "d/_Layout.cshtml";
+    ViewBag.Title = @Model.Title;
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>New Customer</h2>
+<h2>@Model</h2>
 
 @using (@Html.BeginForm("Save", "Customers"))
 {

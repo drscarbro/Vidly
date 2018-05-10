@@ -29,7 +29,7 @@ namespace Vidly.Controllers
             {
                 Genres = genreTypes
             };
-            return View(viewModel);
+            return View("MovieForm", viewModel);
         }
 
         [HttpPost]
@@ -63,16 +63,22 @@ namespace Vidly.Controllers
         }
 
         // GET: Movie
-        public ActionResult Details(int id)
+        public ActionResult Edit(int id)
         {
-            var movie = _context.Movies.Include(g => g.Genre).SingleOrDefault(m => m.Id == id);
+            var movie = _context.Movies.Include(m => m.Genre).SingleOrDefault(m => m.Id == id);
 
             if (movie == null)
             {
                 return HttpNotFound();
             }
 
-            return View(movie);
+            var viewModel = new MovieFormViewModel
+            {
+                Movie = movie,
+                Genres = _context.Genres.ToList()
+            };
+
+            return View("MovieForm", viewModel);
         }
     }
 }
