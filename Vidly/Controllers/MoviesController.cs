@@ -11,6 +11,8 @@ namespace Vidly.Controllers
 {
     public class MoviesController : Controller
     {
+        #region DB Context
+        //Initialize new DB Context for EF and Dispose of it when finished
         private ApplicationDbContext _context;
         public MoviesController()
         {
@@ -21,7 +23,18 @@ namespace Vidly.Controllers
         {
             _context.Dispose();
         }
+        #endregion DB Context
 
+        #region MoviesController Actions
+        // INDEX: Movie
+        public ViewResult Index()
+        {
+            var movies = _context.Movies.Include(g => g.Genre).ToList();
+
+            return View(movies);
+        }
+
+        // NEW: Movie
         public ActionResult New()
         {
             var genreTypes = _context.Genres.ToList();
@@ -31,7 +44,26 @@ namespace Vidly.Controllers
             };
             return View("MovieForm", viewModel);
         }
+        // EDIT: Movie
+        public ActionResult Edit(int id)
+        {
+            var movie = _context.Movies.Include(m => m.Genre).SingleOrDefault(m => m.Id == id);
 
+            if (movie == null)
+            {
+                return HttpNotFound();
+            }
+
+            var viewModel = new MovieFormViewModel
+            {
+                Movie = movie,
+                Genres = _context.Genres.ToList()
+            };
+
+            return View("MovieForm", viewModel);
+        }
+
+        // SAVE: Movie
         [HttpPost]
         public ActionResult Save(Movie movie)
         {
@@ -54,31 +86,6 @@ namespace Vidly.Controllers
 
             return RedirectToAction("Index", "Movies");
         }
-
-        public ViewResult Index()
-        {
-            var movies = _context.Movies.Include(g => g.Genre).ToList();
-
-            return View(movies);
-        }
-
-        // GET: Movie
-        public ActionResult Edit(int id)
-        {
-            var movie = _context.Movies.Include(m => m.Genre).SingleOrDefault(m => m.Id == id);
-
-            if (movie == null)
-            {
-                return HttpNotFound();
-            }
-
-            var viewModel = new MovieFormViewModel
-            {
-                Movie = movie,
-                Genres = _context.Genres.ToList()
-            };
-
-            return View("MovieForm", viewModel);
-        }
+        #endregion MoviesController Actions
     }
 }
