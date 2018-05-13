@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web.Mvc;
 using Vidly.Models;
 using Vidly.ViewModels;
+using DateTime = System.DateTime;
 
 namespace Vidly.Controllers
 {
@@ -35,10 +36,10 @@ namespace Vidly.Controllers
         }
 
         // NEW: Movie
-        public ActionResult New()
+        public ActionResult New(Movie movie)
         {
             var genreTypes = _context.Genres.ToList();
-            var viewModel = new MovieFormViewModel
+            var viewModel = new MovieFormViewModel(movie)
             {
                 Genres = genreTypes
             };
@@ -54,9 +55,8 @@ namespace Vidly.Controllers
                 return HttpNotFound();
             }
 
-            var viewModel = new MovieFormViewModel
+            var viewModel = new MovieFormViewModel(movie)
             {
-                Movie = movie,
                 Genres = _context.Genres.ToList()
             };
 
@@ -65,18 +65,28 @@ namespace Vidly.Controllers
 
         // SAVE: Movie
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Save(Movie movie)
         {
+            if (!ModelState.IsValid)
+            {
+                var viewModel = new MovieFormViewModel(movie)
+                {
+                    Genres = _context.Genres.ToList()
+                };
+                return View("MovieForm", viewModel);
+            }
+
             if (movie.Id == 0)
             {
-                movie.DateAdded = DateTime.Now;
+                movie.DateAdded = DateTime.Now;;
                 _context.Movies.Add(movie);
             }
             else
             {
                 var movieIndDb = _context.Movies.Single(c => c.Id == movie.Id);
 
-                movieIndDb.Title = movie.Title;
+                movieIndDb.Name = movie.Name;
                 movieIndDb.GenreId = movie.GenreId;
                 movieIndDb.NumberInStock = movie.NumberInStock;
                 movieIndDb.ReleaseDate = movie.ReleaseDate;
