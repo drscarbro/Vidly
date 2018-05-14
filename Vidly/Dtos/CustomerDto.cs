@@ -20,7 +20,7 @@ namespace Vidly.Dtos
         [Required(ErrorMessage = "Please select a valid Membership Type.")]
         public byte MembershipTypeId { get; set; }
 
-        [MembershipAge]
+        //[MembershipAge]
         public DateTime? BirthDay { get; set; }
     }
 }
