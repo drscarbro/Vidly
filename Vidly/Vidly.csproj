@@ -223,6 +223,10 @@
     <Compile Include="Migrations\201805131901211_InitialMigration.Designer.cs">
       <DependentUpon>201805131901211_InitialMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201805132152227_UpdateMembershipAndGenreTypes.cs" />
+    <Compile Include="Migrations\201805132152227_UpdateMembershipAndGenreTypes.Designer.cs">
+      <DependentUpon>201805132152227_UpdateMembershipAndGenreTypes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -251,7 +255,7 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <None Include="Properties\PublishProfiles\Vidly20180512125244 - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\Vidly20180513071458 - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -322,6 +326,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201805131901211_InitialMigration.resx">
       <DependentUpon>201805131901211_InitialMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805132152227_UpdateMembershipAndGenreTypes.resx">
+      <DependentUpon>201805132152227_UpdateMembershipAndGenreTypes.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
