@@ -30,3 +30,7 @@ textarea {
 .input-validation-error {
     border: 2px solid red;
 }
+
+.btn-add {
+    margin-bottom: 5px;
+}
