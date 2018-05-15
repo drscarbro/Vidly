@@ -13,7 +13,7 @@ namespace Vidly.Controllers.Api
 {
     public class MoviesController : ApiController
     {
-        private ApplicationDbContext _context;
+        private readonly ApplicationDbContext _context;
 
         public MoviesController()
         {
@@ -55,8 +55,7 @@ namespace Vidly.Controllers.Api
         }
 
         [HttpPut]
-        public IHttpActionResult UpdateMovie(int id, MovieDto movieDto
-        )
+        public IHttpActionResult UpdateMovie(int id, MovieDto movieDto)
         {
             if (!ModelState.IsValid)
             {
@@ -79,12 +78,12 @@ namespace Vidly.Controllers.Api
         }
 
         [HttpDelete]
-        public void DeleteMovie(int id)
+        public IHttpActionResult DeleteMovie(int id)
         {
             var movieInDb = _context.Movies.SingleOrDefault(m => m.Id == id);
             if (movieInDb == null)
             {
-                throw new HttpResponseException(HttpStatusCode.BadRequest);
+                return NotFound();
             }
             else
             {
@@ -92,6 +91,7 @@ namespace Vidly.Controllers.Api
             }
 
             _context.SaveChanges();
+            return Ok();
         }
 
     }
