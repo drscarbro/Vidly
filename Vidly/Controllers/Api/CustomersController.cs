@@ -58,19 +58,13 @@ namespace Vidly.Controllers.Api
             {
                 throw new HttpResponseException(HttpStatusCode.BadRequest);
             }
-            else
-            {
-                var customerInDb = _context.Customers.SingleOrDefault(c => c.Id == id);
+            var customerInDb = _context.Customers.SingleOrDefault(c => c.Id == id);
 
-                if (customerInDb == null)
-                {
-                    throw new HttpResponseException(HttpStatusCode.NotFound);
-                }
-                else
-                {
-                    Mapper.Map(customerDto, customerInDb);
-                }
+            if (customerInDb == null)
+            {
+                throw new HttpResponseException(HttpStatusCode.NotFound);
             }
+            Mapper.Map(customerDto, customerInDb);
 
             _context.SaveChanges();
         }
