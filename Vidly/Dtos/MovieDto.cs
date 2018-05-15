@@ -18,6 +18,8 @@ namespace Vidly.Dtos
 
         public DateTime DateAdded { get; set; }
 
+        public GenreDto Genre { get; set; }
+
         [Required(ErrorMessage = "Please select a Genre.")]
         public byte GenreId { get; set; }
 
