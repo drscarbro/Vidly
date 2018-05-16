@@ -29,14 +29,7 @@ namespace Vidly.ViewModels
         [Range(1, 20)]
         public byte? NumberInStock { get; set; }
 
-        public string Title
-        {
-            get
-            {
-                return Id != 0 ? "Edit Movie" : "New Movie"; 
-
-            }
-        }
+        public string Title => Id != 0 ? "Edit Movie" : "New Movie";
 
         public MovieFormViewModel()
         {
@@ -50,7 +43,6 @@ namespace Vidly.ViewModels
             ReleaseDate = movie.ReleaseDate;
             NumberInStock = movie.NumberInStock;
             GenreId = movie.GenreId;
-
         }
     }
 }
