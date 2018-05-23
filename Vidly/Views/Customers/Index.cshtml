@@ -4,23 +4,24 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Customers</h2>
+<div class="container body-content">
+    <h2>Customers</h2>
 
-@Html.ActionLink("Add Customer", "New", "Customers", new { @class = "btn btn-primary btn-add" })
+    @Html.ActionLink("Add Customer", "New", "Customers", new { @class = "btn btn-primary btn-add" })
 
-<table id="customers" class="table table-bordered table-hover" style="margin-top: 5px">
-    <thead>
-        <tr>
-            <th>Customer</th>
-            <th>Membership Type</th>
-            <th>Delete</th>
-        </tr>
-    </thead>
-    <tbody>
-        @* Placeholder for Customers Data *@
-    </tbody>
-</table>
-
+    <table id="customers" class="table table-bordered table-hover" style="margin-top: 5px">
+        <thead>
+            <tr>
+                <th>Customer</th>
+                <th>Membership Type</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            @* Placeholder for Customers Data *@
+        </tbody>
+    </table>
+</div>
 @section scripts
 {
     <script>
